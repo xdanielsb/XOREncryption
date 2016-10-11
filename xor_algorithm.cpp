@@ -4,23 +4,26 @@
 
 int main( int argc, char **argv){
 
-   FILE *fi, *fo;
+   FILE *file_input, *file_output;
    char *cp;
    int c;
 
-   fi = fopen("assets/in.txt","r");
-   fo = fopen ("assets/out.txt", "w");
+   file_input = fopen("assets/in.txt","r");
+   file_output = fopen ("assets/out.txt", "w");
+   
+
    while(1){
-      c = fgetc(fi);
-      if( feof(fi) ){ 
+      c =(int) fgetc(file_input);
+      if( feof(file_input) ){ 
          break ;
       }
-    std::cout << (char)c << " ";
+    unsigned int val = 1;
+    std::cout << c ^ val;
        // fprintf(fo, "%c",c);
        // printf("%c", c);
    }
-   fclose(fo);
-   fclose(fi);
+   fclose(file_output);
+   fclose(file_input);
    
    return(0);
 }
